@@ -1,0 +1,14 @@
+.animated-bot {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.animated-bot__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}

@@ -1,0 +1,18 @@
+.agent-overlay {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.agent-overlay__slot {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 108px;
+  height: 162px;
+  pointer-events: auto;
+}

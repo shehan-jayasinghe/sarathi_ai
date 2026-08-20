@@ -90,6 +90,16 @@ scripts/              # Dev helpers
 docs/                 # Architecture and plan
 ```
 
+## Run the agent UI (dev)
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open http://localhost:5173 — transparent page with a small animated agent in the **top-right** (desktop overlay preview). Background waves and full-screen splash are removed.
+
 ## Documentation
 
 - [Implementation Plan](docs/IMPLEMENTATION_PLAN.md)
@@ -97,4 +107,4 @@ docs/                 # Architecture and plan
 
 ## Status
 
-Folder structure for Phase 1 is in place. Next: scaffold the Go + Wails desktop shell and React UI, then wire conversation core.
+Floating agent overlay UI is in place. Next: scaffold Go + Wails with a transparent always-on-top window, then conversation core.
