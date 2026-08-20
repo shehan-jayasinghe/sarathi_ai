@@ -72,6 +72,24 @@ For coding tasks, the default workflow is:
 6. Apply the change.
 7. Run validation and report the result.
 
+## Project Layout
+
+```text
+cmd/sarathi/          # Application entrypoint (Wails/Go)
+internal/
+  conversation/       # Conversation manager
+  router/             # Intent router
+  models/             # Model manager
+  tools/              # Deterministic tools
+  memory/             # Local memory
+  permissions/        # Approval gate
+frontend/src/         # React + TypeScript UI
+models/registry/      # Model metadata (not weights)
+data/                 # Local runtime state (gitignored)
+scripts/              # Dev helpers
+docs/                 # Architecture and plan
+```
+
 ## Documentation
 
 - [Implementation Plan](docs/IMPLEMENTATION_PLAN.md)
@@ -79,4 +97,4 @@ For coding tasks, the default workflow is:
 
 ## Status
 
-Early architecture/planning stage. Implementation will be delivered incrementally, starting with the desktop shell, conversation core, memory, and coding assistant.
+Folder structure for Phase 1 is in place. Next: scaffold the Go + Wails desktop shell and React UI, then wire conversation core.

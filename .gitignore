@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/wailsjs/
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+
+# Wails / build output
+build/bin/
+build/darwin/
+build/windows/
+build/linux/
+dist/
+
+# Local runtime data (memory, project state)
+data/memory/*
+!data/memory/.gitkeep
+data/projects/*
+!data/projects/.gitkeep
+
+# Local model weights (keep registry metadata only)
+models/**
+!models/registry/
+!models/registry/**
+!models/registry/.gitkeep
+*.gguf
+*.bin
+*.onnx
+*.safetensors
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
