@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "sarathi-voice": {
+      "command": "/Users/shehanjayasinghe/Documents/development/Go/sarathi_ai/tools/voice/.venv/bin/python",
+      "args": [
+        "/Users/shehanjayasinghe/Documents/development/Go/sarathi_ai/tools/voice/mcp_server.py"
+      ]
+    }
+  }
+}

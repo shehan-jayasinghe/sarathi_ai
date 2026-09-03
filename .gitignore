@@ -27,6 +27,15 @@ data/memory/*
 !data/memory/.gitkeep
 data/projects/*
 !data/projects/.gitkeep
+data/voice/*
+!data/voice/.gitkeep
+!data/voice/prompt.wav
+
+# Keep sample assets optional; ignore uploads/replies
+data/voice/upload_*
+data/voice/reply.wav
+data/voice/reply_*.wav
+data/voice/e2e_reply.wav
 
 # Local model weights (keep registry metadata only)
 models/**

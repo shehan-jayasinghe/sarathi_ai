@@ -90,15 +90,44 @@ scripts/              # Dev helpers
 docs/                 # Architecture and plan
 ```
 
-## Run the agent UI (dev)
+## Run API + UI
 
 ```bash
-cd frontend
-npm install
-npm run dev
+# Terminal 1 — Go API (talks to Python MCP)
+go run ./cmd/sarathi -addr 127.0.0.1:8080
+
+# Terminal 2 — frontend
+cd frontend && npm run dev
 ```
 
-Open http://localhost:5173 — transparent page with a small animated agent in the **top-right** (desktop overlay preview). Background waves and full-screen splash are removed.
+Click the top-right robot → mic → **streaming** `POST /api/voice/stream` (SSE):
+tokens appear live, Kokoro speaks **sentence by sentence**.
+
+## Voice pipeline (local)
+
+```text
+Audio → Whisper → Speech Normalizer → Qwen (Ollama) → Kokoro → Audio
+```
+
+```bash
+source tools/voice/.venv/bin/activate
+cd tools/voice
+
+# Text path (skip mic/STT)
+python pipeline_cli.py --text "Open file number twenty five and change line ten."
+
+# Audio path
+python pipeline_cli.py --audio /path/to/clip.wav --out ../../data/voice/reply.wav
+
+# MCP server (stdio) — for Cursor / future desktop host
+python mcp_server.py
+```
+
+Cursor config example: `tools/voice/mcp.cursor.example.json`
+
+MCP tools: `speech_to_text_tool`, `normalize_speech_tool`, `chat_qwen_tool`, `text_to_speech_tool`, `voice_pipeline`
+
+Models: `qwen2.5:3b` (Ollama), `mlx-community/whisper-base-mlx`, Kokoro-82M.
 
 ## Documentation
 
@@ -107,4 +136,4 @@ Open http://localhost:5173 — transparent page with a small animated agent in t
 
 ## Status
 
-Floating agent overlay UI is in place. Next: scaffold Go + Wails with a transparent always-on-top window, then conversation core.
+Floating agent overlay UI is in place. Local voice pipeline runs via **Frontend → Go API → Python MCP**. Next: Wails transparent desktop shell.

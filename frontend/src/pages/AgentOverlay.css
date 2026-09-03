@@ -10,9 +10,70 @@
 
 .agent-overlay__slot {
   position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
-  width: 108px;
-  height: 162px;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 120px;
+  height: 120px;
   pointer-events: auto;
+  border-radius: 50%;
+}
+
+.agent-overlay__slot.is-listening {
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.55);
+  animation: listen-pulse 1.2s ease-in-out infinite;
+}
+
+.agent-overlay__hit {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.agent-overlay__hit:disabled {
+  cursor: wait;
+  opacity: 0.9;
+}
+
+.agent-overlay__toast {
+  position: absolute;
+  top: 8.5rem;
+  right: 0.75rem;
+  max-width: min(300px, 72vw);
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(8, 16, 32, 0.82);
+  color: #e8f4ff;
+  font: 500 0.78rem/1.35 "Segoe UI", system-ui, sans-serif;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+}
+
+.agent-overlay__status {
+  margin: 0;
+  opacity: 0.75;
+}
+
+.agent-overlay__heard,
+.agent-overlay__reply {
+  margin: 0.35rem 0 0;
+}
+
+.agent-overlay__heard span,
+.agent-overlay__reply span {
+  opacity: 0.65;
+  margin-right: 0.25rem;
+}
+
+@keyframes listen-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.2);
+  }
 }

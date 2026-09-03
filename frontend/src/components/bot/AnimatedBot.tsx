@@ -1,14 +1,16 @@
-import bustSvg from "../../assets/images/sarathi-bust.svg";
+import { Lottie } from "lottie-react";
+import robotAnimation from "../../assets/images/sarathi-robot.json";
 import "./AnimatedBot.css";
 
 export function AnimatedBot() {
   return (
     <div className="animated-bot">
-      <img
-        className="animated-bot__image"
-        src={bustSvg}
-        alt="Sarathi AI agent"
-        draggable={false}
+      <Lottie
+        className="animated-bot__lottie"
+        src={robotAnimation}
+        loop
+        autoplay
+        aria-label="Sarathi AI agent"
       />
     </div>
   );
